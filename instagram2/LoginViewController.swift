@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import SVProgressHUD
-class LoginViewController: UITabBarController {
+class LoginViewController: UIViewController {
     @IBOutlet var mailAddressTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var displayTextField: UITextField!
