@@ -16,9 +16,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // 投稿データを格納する配列
     var postArray: [PostData] = []
     
+    var postData:PostData? = nil
+    
     var posttable = PostTableViewCell.self
     
-
     // Firestoreのリスナー
     var listener: ListenerRegistration!
 
@@ -115,6 +116,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @objc func handleComment(_ sender: UIButton, forEvent event: UIEvent){
+
         performSegue(withIdentifier: "Comment", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let  commentViewContrloller = segue.destination as! CommentViewController
     }
 }

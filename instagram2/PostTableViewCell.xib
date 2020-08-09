@@ -9,21 +9,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="722" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="instagram2" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="569" height="722"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="1166" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="instagram2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="574" height="1166"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="569" height="722"/>
+                <rect key="frame" x="0.0" y="0.0" width="574" height="1166"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xat-SY-32g">
-                        <rect key="frame" x="0.0" y="10" width="569" height="569"/>
+                        <rect key="frame" x="0.0" y="10" width="574" height="574"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="xat-SY-32g" secondAttribute="height" multiplier="1:1" id="Oz9-YM-lS0"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oby-Gk-A6M">
-                        <rect key="frame" x="10" y="664" width="549" height="50"/>
+                        <rect key="frame" x="10" y="669" width="554" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Z2X-QU-O79"/>
                         </constraints>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta2-37-8uc">
-                        <rect key="frame" x="339" y="604" width="200" height="40"/>
+                        <rect key="frame" x="344" y="609" width="200" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="oSr-4i-Tr7"/>
                         </constraints>
@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-cD-TWk">
-                        <rect key="frame" x="30" y="604" width="40" height="40"/>
+                        <rect key="frame" x="30" y="609" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="HPb-0Q-ICx"/>
                             <constraint firstAttribute="height" constant="40" id="KUI-yR-k4b"/>
@@ -49,20 +49,25 @@
                         <state key="normal" title="Button" image="like_none"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZS-Z5-N0w">
-                        <rect key="frame" x="80" y="604" width="150" height="40"/>
+                        <rect key="frame" x="80" y="609" width="150" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="9tt-ka-gEz"/>
                         </constraints>
                         <state key="normal" title="コメント投稿" backgroundImage="btn"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZI-Wk-yWQ">
-                        <rect key="frame" x="240" y="604" width="89" height="40"/>
+                        <rect key="frame" x="240" y="609" width="94" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GQg-PV-y0k">
+                        <rect key="frame" x="30" y="729" width="514" height="416"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </tableView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="GQg-PV-y0k" secondAttribute="trailing" constant="10" id="3hJ-AP-D1o"/>
                     <constraint firstItem="IZS-Z5-N0w" firstAttribute="top" secondItem="xat-SY-32g" secondAttribute="bottom" constant="25" id="6ee-s0-WgO"/>
                     <constraint firstItem="oby-Gk-A6M" firstAttribute="top" secondItem="Ta2-37-8uc" secondAttribute="bottom" constant="20" id="Bwv-Qj-Jln"/>
                     <constraint firstAttribute="trailing" secondItem="xat-SY-32g" secondAttribute="trailing" id="C6j-GW-O4b"/>
@@ -70,13 +75,16 @@
                     <constraint firstAttribute="trailing" secondItem="oby-Gk-A6M" secondAttribute="trailing" constant="10" id="KYf-0d-0go"/>
                     <constraint firstItem="xZI-Wk-yWQ" firstAttribute="leading" secondItem="IZS-Z5-N0w" secondAttribute="trailing" constant="10" id="LaC-l9-WAs"/>
                     <constraint firstItem="oby-Gk-A6M" firstAttribute="top" secondItem="xZI-Wk-yWQ" secondAttribute="bottom" constant="20" id="QRA-sA-k9Z"/>
+                    <constraint firstItem="GQg-PV-y0k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="RW5-E7-71E"/>
                     <constraint firstItem="xat-SY-32g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="SS6-Uu-cGj"/>
                     <constraint firstItem="Ta2-37-8uc" firstAttribute="top" secondItem="xat-SY-32g" secondAttribute="bottom" constant="25" id="WQM-zJ-OKy"/>
                     <constraint firstItem="Ta2-37-8uc" firstAttribute="leading" secondItem="xZI-Wk-yWQ" secondAttribute="trailing" constant="10" id="bJn-n1-iKA"/>
                     <constraint firstItem="xZI-Wk-yWQ" firstAttribute="top" secondItem="xat-SY-32g" secondAttribute="bottom" constant="25" id="bYQ-qJ-fMk"/>
                     <constraint firstItem="OnW-cD-TWk" firstAttribute="top" secondItem="xat-SY-32g" secondAttribute="bottom" constant="25" id="fkn-dy-qFL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Ta2-37-8uc" secondAttribute="trailing" constant="10" id="g8P-vv-m0s"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GQg-PV-y0k" secondAttribute="bottom" constant="10" id="gnY-9e-Fxj"/>
                     <constraint firstItem="OnW-cD-TWk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="m36-yL-Adf"/>
+                    <constraint firstItem="GQg-PV-y0k" firstAttribute="top" secondItem="oby-Gk-A6M" secondAttribute="bottom" constant="10" id="m7X-Z8-w8N"/>
                     <constraint firstItem="IZS-Z5-N0w" firstAttribute="leading" secondItem="OnW-cD-TWk" secondAttribute="trailing" constant="10" id="n64-ZA-ybU"/>
                     <constraint firstItem="oby-Gk-A6M" firstAttribute="top" secondItem="IZS-Z5-N0w" secondAttribute="bottom" constant="20" id="nRv-wT-EGz"/>
                     <constraint firstItem="xat-SY-32g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="oXI-6y-imU"/>
@@ -91,8 +99,9 @@
                 <outlet property="likeButton" destination="OnW-cD-TWk" id="cld-AY-FdI"/>
                 <outlet property="likeLabel" destination="Ta2-37-8uc" id="1Yt-Oc-nlU"/>
                 <outlet property="postImageView" destination="xat-SY-32g" id="XLw-4T-Q0G"/>
+                <outlet property="tableView" destination="GQg-PV-y0k" id="qRg-xW-SOS"/>
             </connections>
-            <point key="canvasLocation" x="307.97101449275362" y="235.04464285714283"/>
+            <point key="canvasLocation" x="310.14492753623193" y="383.70535714285711"/>
         </tableViewCell>
     </objects>
     <resources>

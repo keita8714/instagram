@@ -17,6 +17,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var commentButton: UIButton!
     @IBOutlet var captionLabel: UILabel!
+    @IBOutlet var tableView: UITableView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

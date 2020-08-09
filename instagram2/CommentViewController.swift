@@ -10,14 +10,16 @@ import UIKit
 
 class CommentViewController: UIViewController {
     @IBOutlet var textField: UITextField!
+    var ID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
        
     }
     
     @IBAction func backButton(_ sender: Any) {
+        
         dismiss(animated: true, completion: nil)
     }
     
