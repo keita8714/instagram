@@ -116,7 +116,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @objc func handleComment(_ sender: UIButton, forEvent event: UIEvent){
-
+　　　　　
         performSegue(withIdentifier: "Comment", sender: nil)
     }
     
