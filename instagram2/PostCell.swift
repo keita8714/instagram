@@ -21,17 +21,11 @@ class PostCell: UITableViewCell {
     @IBOutlet var commentLabel: UILabel!
     var post:PostData?
     var S:[String] = []
-    
+    var a:CommentViewController!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         name = Auth.auth().currentUser?.displayName
-        if post?.comment != nil {
-            S = post?.comment as! [String]
-            commentLabel.text = "\(S)"
-        }else{
-            commentLabel.text = "コメント欄"
-        }
         }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     // 投稿データを格納する配列
     var postArray: [PostData] = []
-    
+    var name:String!
     var Post:PostData?
     //textField.textを格納する
     var a = String()
@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("DEBUG_PRINT: viewWillAppear")
-        
+        tableView.reloadData()
         if Auth.auth().currentUser != nil {
             // ログイン済み
             if listener == nil {
@@ -79,12 +79,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostCell
         cell.setPostData(postArray[indexPath.row])
 
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         cell.commentButton.addTarget(self, action: #selector(handleComment(_:forEvent:)), for: .touchUpInside)
+        if Post?.comment != nil{
+            cell.commentLabel.text = "\(Post?.comment)"
+        }else{
+            cell.commentLabel.text = "コメント欄"
+        }
 
         return cell
     }
@@ -131,7 +136,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let  commentViewContrloller = segue.destination as! CommentViewController
-        commentViewContrloller.ID = Post?.id as! String
+        commentViewContrloller.Post = Post
     }
     
     
