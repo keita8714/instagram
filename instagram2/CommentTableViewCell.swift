@@ -1,5 +1,5 @@
 //
-//  PostTableViewCell.swift
+//  CommentTableViewCell.swift
 //  instagram2
 //
 //  Created by Keita Munekawa on 2020/08/10.
@@ -8,8 +8,12 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
-
+class CommentTableViewCell: UITableViewCell {
+    @IBOutlet var userName: UILabel!
+    @IBOutlet var commentLabel: UILabel!
+    @IBOutlet var createdAt: UILabel!
+    var homeViewController:HomeViewController!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +24,11 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+     func setPostData(_ postData: PostData) {
+        self.userName.text = homeViewController.c
+        self.commentLabel.text = homeViewController.a
+        }
+            
     
 }
+

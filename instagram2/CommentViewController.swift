@@ -7,24 +7,28 @@
 //
 
 import UIKit
+import Firebase
 
 class CommentViewController: UIViewController {
-    @IBOutlet var textField: UITextField!
     var ID = String()
+    var post:PostData? = nil
+    @IBOutlet var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+   
        
     }
     
-    @IBAction func backButton(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
+    @IBAction func button(_ sender: Any) {
+        performSegue(withIdentifier: "Home", sender: nil)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let homeViewController = segue.destination as! HomeViewController
+        homeViewController.a = textView.text
+        homeViewController.b = ID
         
         
         

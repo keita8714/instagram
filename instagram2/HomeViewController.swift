@@ -12,13 +12,19 @@ import Firebase
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
 
     // 投稿データを格納する配列
     var postArray: [PostData] = []
     
-    var postData:PostData? = nil
+    //CommentViewControllerから戻った時にidを取得
+    var b = String()
     
-    var posttable = PostTableViewCell.self
+    var Post:PostData? = nil
+    //textField.textを格納する
+    var a = String()
+    var c = String()
+    var postTableCell:PostTableViewCell?
     
     // Firestoreのリスナー
     var listener: ListenerRegistration!
@@ -32,12 +38,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // カスタムセルを登録する
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("DEBUG_PRINT: viewWillAppear")
-
+        
         if Auth.auth().currentUser != nil {
             // ログイン済み
             if listener == nil {
@@ -116,11 +123,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @objc func handleComment(_ sender: UIButton, forEvent event: UIEvent){
-　　　　　
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        // 配列からタップされたインデックスのデータを取り出す
+        var postData = postArray[indexPath!.row]
+                   Post = postData
         performSegue(withIdentifier: "Comment", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let  commentViewContrloller = segue.destination as! CommentViewController
+        commentViewContrloller.ID = Post?.id as! String
     }
+    
+    
 }

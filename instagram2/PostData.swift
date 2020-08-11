@@ -15,8 +15,6 @@ class PostData: NSObject {
     var name: String?
     var caption: String?
     var comment:[Comment] = []
-
-    
     
     var date: Date?
     var likes: [String] = []
@@ -49,7 +47,7 @@ class PostData: NSObject {
         }
     
 }
-
+}
 class Comment : NSObject{
     var text = String()
     var time = Int()
@@ -61,6 +59,5 @@ class Comment : NSObject{
             self.text = Text
             
     }
-}
 }
 }
