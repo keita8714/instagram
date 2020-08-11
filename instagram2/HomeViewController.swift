@@ -10,21 +10,17 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
     @IBOutlet weak var tableView: UITableView!
-    
-
     // 投稿データを格納する配列
     var postArray: [PostData] = []
     
-    //CommentViewControllerから戻った時にidを取得
-    var b = String()
-    
-    var Post:PostData? = nil
+    var Post:PostData?
     //textField.textを格納する
     var a = String()
+    //CommentViewControllerから戻った時にidを取得
+    var b = String()
     var c = String()
-    var postTableCell:PostTableViewCell?
+    var postTableCell:PostCell?
     
     // Firestoreのリスナー
     var listener: ListenerRegistration!
@@ -36,7 +32,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
 
         // カスタムセルを登録する
-        let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
+        let nib = UINib(nibName: "PostCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
         
     }
@@ -83,7 +79,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostCell
         cell.setPostData(postArray[indexPath.row])
 
         // セル内のボタンのアクションをソースコードで設定する
@@ -109,6 +105,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let myid = Auth.auth().currentUser?.uid {
             // 更新データを作成する
             var updateValue: FieldValue
+            
             if postData.isLiked {
                 // すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
                 updateValue = FieldValue.arrayRemove([myid])

@@ -11,9 +11,10 @@ import Firebase
 
 class CommentViewController: UIViewController {
     var ID = String()
-    var post:PostData? = nil
-    @IBOutlet var textView: UITextView!
     
+    @IBOutlet var textView: UITextView!
+    var name:String!
+    var com:String!
     override func viewDidLoad() {
         super.viewDidLoad()
    
@@ -21,6 +22,16 @@ class CommentViewController: UIViewController {
     }
     
     @IBAction func button(_ sender: Any) {
+         if let myid = Auth.auth().currentUser?.uid {
+            var post:PostData!
+            name = Auth.auth().currentUser?.displayName
+            com =   "\(name):\(textView.text)"
+            post?.comment.append(com)
+        var updateValue:FieldValue
+            updateValue = FieldValue.arrayUnion([myid])
+            let postRef = Firestore.firestore().collection(Const.PostPath).document(ID)
+            postRef.updateData(["comment": updateValue])
+        }
         performSegue(withIdentifier: "Home", sender: nil)
     }
     
