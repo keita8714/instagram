@@ -29,9 +29,9 @@ class PostData: NSObject {
 
         self.caption = postDic["caption"] as? String
         
-        if let Comments = postDic["comment"] as? [String]{
-            self.comment = Comments
-        }
+       if let Comments = postDic["comment"] as? [String]{
+                  self.comment = Comments
+              }
         let timestamp = postDic["date"] as? Timestamp
         self.date = timestamp?.dateValue()
 
@@ -43,6 +43,7 @@ class PostData: NSObject {
             if self.likes.firstIndex(of: myid) != nil {
                 // myidがあれば、いいねを押していると認識する。
                 self.isLiked = true
+                print(self.comment)
             }
         }
     

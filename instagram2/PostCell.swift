@@ -25,7 +25,6 @@ class PostCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        name = Auth.auth().currentUser?.displayName
         }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -86,11 +86,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         cell.commentButton.addTarget(self, action: #selector(handleComment(_:forEvent:)), for: .touchUpInside)
         if Post?.comment != nil{
-            cell.commentLabel.text = "\(Post?.comment)"
-        }else{
+            cell.commentLabel!.text = "\(Post!.comment)"
+               }else{
             cell.commentLabel.text = "コメント欄"
-        }
-
+               }
         return cell
     }
 
@@ -138,6 +137,5 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let  commentViewContrloller = segue.destination as! CommentViewController
         commentViewContrloller.Post = Post
     }
-    
     
 }
