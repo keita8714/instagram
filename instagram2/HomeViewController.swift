@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // Firestoreのリスナー
     var listener: ListenerRegistration!
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -85,11 +84,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         cell.commentButton.addTarget(self, action: #selector(handleComment(_:forEvent:)), for: .touchUpInside)
-        if Post?.comment != nil{
-            cell.commentLabel!.text = "\(Post!.comment)"
-               }else{
-            cell.commentLabel.text = "コメント欄"
-               }
         return cell
     }
 

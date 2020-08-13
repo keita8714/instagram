@@ -22,9 +22,15 @@ class PostCell: UITableViewCell {
     var post:PostData?
     var S:[String] = []
     var a:CommentViewController!
+    var const:Const!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if post?.comment != nil{
+            commentLabel!.text = "\(post?.comment)"
+           }else{
+        commentLabel.text = "コメント欄"
+           }
         }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
