@@ -61,6 +61,7 @@ class PostCell: UITableViewCell {
                let buttonImage = UIImage(named: "like_none")
                self.likeButton.setImage(buttonImage, for: .normal)
            }
+        label = ""
         for comment in postData.comment{
             label += comment + "\n"
         }
