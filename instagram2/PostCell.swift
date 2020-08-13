@@ -10,8 +10,8 @@ import UIKit
 import FirebaseUI
 import Firebase
 class PostCell: UITableViewCell {
-    var homeViewController:HomeViewController?
     var name:String!
+    var label:String = ""
     @IBOutlet var postImageView: UIImageView!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var commentButton: UIButton!
@@ -19,18 +19,10 @@ class PostCell: UITableViewCell {
     @IBOutlet var likeLabel: UILabel!
     @IBOutlet var captionLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
-    var post:PostData?
-    var S:[String] = []
-    var a:CommentViewController!
-    var const:Const!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if post?.comment != nil{
-            commentLabel!.text = "\(post?.comment)"
-           }else{
-        commentLabel.text = "コメント欄"
-           }
         }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -69,5 +61,10 @@ class PostCell: UITableViewCell {
                let buttonImage = UIImage(named: "like_none")
                self.likeButton.setImage(buttonImage, for: .normal)
            }
+        for comment in postData.comment{
+            label += comment + "\n"
+        }
+        
+        self.commentLabel.text = "\(label)"
        }
 }

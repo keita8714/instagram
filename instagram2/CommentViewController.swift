@@ -26,11 +26,10 @@ class CommentViewController: UIViewController {
         if let myid = Auth.auth().currentUser?.uid {
             name = Auth.auth().currentUser?.displayName
             com =   "\(name!):\(textView.text!)"
-            Post?.comment.append(com)
             
             
             var updateValue:FieldValue
-            updateValue = FieldValue.arrayUnion([myid])
+            updateValue = FieldValue.arrayUnion([com])
             let postRef = Firestore.firestore().collection(Const.PostPath).document(Post.id)
             print(updateValue)
             postRef.updateData(["comment":updateValue])
@@ -38,11 +37,4 @@ class CommentViewController: UIViewController {
         }
        
     }
-       
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let homeViewController = segue.destination as! HomeViewController
-        homeViewController.Post = Post
-        
-    }
-    
     }
